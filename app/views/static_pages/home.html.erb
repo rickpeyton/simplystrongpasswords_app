@@ -2,8 +2,10 @@
 
 <div class="center jumbotron text-center">
   <h1>Good Passwords Are Simply Strong and Easy to Remember</h1>
-  <h3>Tr0ub4dor&3 Is Not Strong or Easy to Remember</h3>
+  <h3><%= @weakpassword %> Is Not Strong or Easy to Remember</h3>
+  <p>Password strength = <%= @weakpassword_strength %></p>
   <hr>
   <p>Your New Strong Password Is...</p>
-  <h2><%= @password %>
+  <h2><%= @strongpassword %></h2>
+  <p>Password strength = <%= @strongpassword_strength %></p>
 </div>
