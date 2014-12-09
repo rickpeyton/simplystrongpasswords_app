@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   private
 
     def generate_password
-      Word.all.shuffle.take(3).collect{ |w| w.word.capitalize }.join(' ')
+      Word.all.shuffle.take(3).collect{ |w| w.word.capitalize }.join("#{' .'[rand(2)]}")
     end
 
     def numbers
