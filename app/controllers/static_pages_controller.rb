@@ -11,7 +11,7 @@ class StaticPagesController < ApplicationController
 
     def generate_password
       words = Word.all.shuffle.take(3).collect{ |w| w.word.downcase }
-      if @randomness == 1
+      if @randomness == '1'
         random_capital words
       end
       words.join("#{random_punctuation}")
