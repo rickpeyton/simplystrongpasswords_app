@@ -9,10 +9,9 @@ class StaticPagesController < ApplicationController
   private
 
     def generate_password
-      # Word.all.shuffle.take(3).collect{ |w| w.word.capitalize }.join("#{' .'[rand(2)]}")
       words = Word.all.shuffle.take(3).collect{ |w| w.word.downcase }
       random_capital words
-      words.join(' ')
+      words.join("#{random_punctuation}")
     end
 
     def random_capital words
@@ -21,6 +20,10 @@ class StaticPagesController < ApplicationController
       pick_one_letter = rand(one_word_length)
       words[pick_one_word][pick_one_letter] = words[pick_one_word][pick_one_letter].upcase
       return words
+    end
+
+    def random_punctuation
+      punctuation[rand(punctuation.length)]
     end
 
     def numbers
