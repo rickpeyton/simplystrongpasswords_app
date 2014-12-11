@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
+    @randomness = params[:random_capital]
     @weakpassword = 'Tr0ub4dor&3'
     @weakpassword_strength = calculate_strength @weakpassword
     @strongpassword = generate_password
@@ -10,7 +11,9 @@ class StaticPagesController < ApplicationController
 
     def generate_password
       words = Word.all.shuffle.take(3).collect{ |w| w.word.downcase }
-      random_capital words
+      if @randomness == 1
+        random_capital words
+      end
       words.join("#{random_punctuation}")
     end
 
@@ -18,7 +21,8 @@ class StaticPagesController < ApplicationController
       pick_one_word = rand(3)
       one_word_length = words[pick_one_word].length
       pick_one_letter = rand(one_word_length)
-      words[pick_one_word][pick_one_letter] = words[pick_one_word][pick_one_letter].upcase
+      words[pick_one_word][pick_one_letter] =
+           words[pick_one_word][pick_one_letter].upcase
       return words
     end
 
