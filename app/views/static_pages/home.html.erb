@@ -18,25 +18,25 @@
       </div>
       <div>
         <%= select_tag :punctuation, "
-         <option value=' ' selected> </option>
-         <option>.</option>
-         <option>`</option>
-         <option>~</option>
-         <option>!</option>
-         <option>@</option>
-         <option>#</option>
-         <option>$</option>
-         <option>%</option>
-         <option>^</option>
-         <option>&</option>
-         <option>-</option>
-         <option>_</option>
-         <option>=</option>
-         <option>+</option>
-         <option>[</option>
-         <option>{</option>
-         <option>]</option>
-         <option>}</option>
+         <option value=' ' selected> (space)</option>
+         <option value='.'>. (period)</option>
+         <option value='`'>` (backtick)</option>
+         <option value='~'>~ (tilde)</option>
+         <option value='!'>! (exclamation)</option>
+         <option value='@'>@ (at sign)</option>
+         <option value='#'># (number sign)</option>
+         <option value='$'>$ (dollar sign)</option>
+         <option value='%'>% (percent)</option>
+         <option value='^'>^ (caret)</option>
+         <option value='&'>& (ampersand)</option>
+         <option value='-'>- (minus)</option>
+         <option value='_'>_ (underscore)</option>
+         <option value='='>= (equal sign)</option>
+         <option value='+'>+ (plus)</option>
+         <option value='['>[ (left bracket)</option>
+         <option value='{'>{ (left brace)</option>
+         <option value=']'>] (right bracket)</option>
+         <option value='}'>} (right brace)</option>
          ".html_safe
        %>
       <%= label_tag(:punctuation, "Change Punctuation") %>
