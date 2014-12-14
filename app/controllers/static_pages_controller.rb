@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
     @totalwords = 4
     @weakpassword = 'Tr0ub4dor&3'
     @weakpassword_strength = calculate_strength @weakpassword
+    @counter = Password.first
     @strongpassword = generate_password
     @strongpassword_strength = calculate_strength @strongpassword
   end
@@ -21,8 +22,14 @@ class StaticPagesController < ApplicationController
       if calculate_strength(password) <= (@weakpassword_strength * 1.1)
         generate_password
       else
+        increment_counter
         password
       end
+    end
+
+    def increment_counter
+      @counter.count += 1
+      @counter.save
     end
 
     def join_words words
