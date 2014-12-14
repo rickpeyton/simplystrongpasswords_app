@@ -48,6 +48,13 @@
     </div>
     <div style="margin-top: 10px"><%= submit_tag("Generate a new password") %></div>
   <% end %>
+  <div style="margin-top: 10px">
+    App inspired by the <%= link_to(
+      "Password Strength",
+      "http://xkcd.com/936/",
+      target: '_blank') %>
+    webcomic
+  </div>
 </div>
 <div class="center text-center">
   <%= @counter.count %> Passwords Served<br>
