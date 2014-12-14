@@ -14,29 +14,33 @@
     <div>
       <div>
         <%= check_box_tag(:random_capital) %>
-        <%= label_tag(:random_capital, "Capitalize a Random Letter") %>
+        <%= label_tag(:random_capital, "Capitalize a Random Word") %>
+      </div>
+      <div>
+        <%= check_box_tag(:random_number) %>
+        <%= label_tag(:random_number, "Throw in a Random Number") %>
       </div>
       <div>
         <%= select_tag :punctuation, "
-         <option value=' ' selected> (space)</option>
-         <option value='.'>. (period)</option>
-         <option value='`'>` (backtick)</option>
-         <option value='~'>~ (tilde)</option>
-         <option value='!'>! (exclamation)</option>
-         <option value='@'>@ (at sign)</option>
-         <option value='#'># (number sign)</option>
-         <option value='$'>$ (dollar sign)</option>
-         <option value='%'>% (percent)</option>
-         <option value='^'>^ (caret)</option>
-         <option value='&'>& (ampersand)</option>
-         <option value='-'>- (minus)</option>
-         <option value='_'>_ (underscore)</option>
-         <option value='='>= (equal sign)</option>
-         <option value='+'>+ (plus)</option>
-         <option value='['>[ (left bracket)</option>
-         <option value='{'>{ (left brace)</option>
-         <option value=']'>] (right bracket)</option>
-         <option value='}'>} (right brace)</option>
+         <option value=' ' selected>Space</option>
+         <option value='.'>Period</option>
+         <option value='`'>Backtick</option>
+         <option value='~'>Tilde</option>
+         <option value='!'>Exclamation</option>
+         <option value='@'>At sign</option>
+         <option value='#'>Number sign</option>
+         <option value='$'>Dollar sign</option>
+         <option value='%'>Percent</option>
+         <option value='^'>Caret</option>
+         <option value='&'>Ampersand</option>
+         <option value='-'>Minus</option>
+         <option value='_'>Underscore</option>
+         <option value='='>Equal sign</option>
+         <option value='+'>Plus</option>
+         <option value='['>Left bracket</option>
+         <option value='{'>Left brace</option>
+         <option value=']'>Right bracket</option>
+         <option value='}'>Right brace</option>
          ".html_safe
        %>
       <%= label_tag(:punctuation, "Change Punctuation") %>
