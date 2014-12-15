@@ -13,11 +13,19 @@
   <%= form_tag(root_path, method: 'get') do %>
     <div>
       <div>
-        <%= check_box_tag(:random_capital) %>
+        <% if session[:capital_selection] %>
+          <%= check_box_tag(:random_capital, '1', true) %>
+        <% else %>
+          <%= check_box_tag(:random_capital) %>
+        <% end %>
         <%= label_tag(:random_capital, "Capitalize a Random Word") %>
       </div>
       <div>
-        <%= check_box_tag(:random_number) %>
+        <% if session[:number_selection] %>
+          <%= check_box_tag(:random_number, '1', true) %>
+        <% else %>
+          <%= check_box_tag(:random_number) %>
+        <% end %>
         <%= label_tag(:random_number, "Throw in a Random Number") %>
       </div>
       <div>

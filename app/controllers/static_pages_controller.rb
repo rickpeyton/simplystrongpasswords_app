@@ -6,9 +6,16 @@ class StaticPagesController < ApplicationController
     @counter = Password.first
     @strongpassword = generate_password
     @strongpassword_strength = calculate_strength @strongpassword
+    current_selections
   end
 
   private
+
+    def current_selections
+      session[:capital_selection] = params[:random_capital]
+      session[:number_selection] = params[:random_number]
+      session[:punctuation_selection] = params[:punctuation]
+    end
 
     def generate_password
       words = Word.all.shuffle.take(@totalwords).collect{ |w| w.word.downcase }
