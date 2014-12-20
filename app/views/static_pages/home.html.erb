@@ -29,28 +29,28 @@
         <%= label_tag(:random_number, "Throw in a Random Number") %>
       </div>
       <div>
-        <%= select_tag :punctuation, "
-         <option value=' ' selected>Space</option>
-         <option value='.'>Period</option>
-         <option value='`'>Backtick</option>
-         <option value='~'>Tilde</option>
-         <option value='!'>Exclamation</option>
-         <option value='@'>At sign</option>
-         <option value='#'>Number sign</option>
-         <option value='$'>Dollar sign</option>
-         <option value='%'>Percent</option>
-         <option value='^'>Caret</option>
-         <option value='&'>Ampersand</option>
-         <option value='-'>Minus</option>
-         <option value='_'>Underscore</option>
-         <option value='='>Equal sign</option>
-         <option value='+'>Plus</option>
-         <option value='['>Left bracket</option>
-         <option value='{'>Left brace</option>
-         <option value=']'>Right bracket</option>
-         <option value='}'>Right brace</option>
-         ".html_safe
-       %>
+        <%= select_tag(:punctuation,
+                       options_for_select([
+                         ['Space', ' '],
+                         ['Period', '.'],
+                         ['Backtick', '`'],
+                         ['Tilde', '~'],
+                         ['Exclamation', '!'],
+                         ['At sign', '@'],
+                         ['Number sign', '#'],
+                         ['Dollar sign', '$'],
+                         ['Percent', '%'],
+                         ['Caret', '^'],
+                         ['Ampersand', '&'],
+                         ['Minus', '-'],
+                         ['Underscore', '_'],
+                         ['Equal sign', '='],
+                         ['Plus', '+'],
+                         ['Left bracket', '['],
+                         ['Left brace', '{'],
+                         ['Right bracket', ']'],
+                         ['Right brace', '}']
+                         ], selected: session[:punctuation_selection] )) %>
       <%= label_tag(:punctuation, "Change Punctuation") %>
       </div>
     </div>
