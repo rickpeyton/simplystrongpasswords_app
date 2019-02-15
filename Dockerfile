@@ -14,11 +14,11 @@ COPY Gemfile* ./
 RUN bundle
 COPY . ./
 RUN bundle exec rake assets:precompile
-RUN bundle install --path vendor/bundle --without development test
+RUN bundle install --clean --without development test
 
 
 FROM rickpeyton/rails:ruby-2.3.8-rails-4.2.11
 WORKDIR /app
+COPY --from=builder /usr/local/bundle /usr/local/bundle
 COPY --from=builder /app /app
-COPY config/bundle_config /usr/local/bundle/config
 CMD [ "bundle", "exec", "unicorn", "-p", "$PORT", "-c", "./config/unicorn.rb" ]
