@@ -1,4 +1,4 @@
-FROM ruby:2.2 as dev
+FROM rickpeyton/rails:ruby-2.3.8-rails-4.2.11 as dev
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs
 WORKDIR /app
 COPY Gemfile* ./
@@ -7,7 +7,7 @@ COPY . ./
 CMD [ "bundle", "exec", "unicorn", "-p", "3000", "-c", "./config/unicorn.rb" ]
 
 
-FROM ruby:2.2 as builder
+FROM rickpeyton/rails:ruby-2.3.8-rails-4.2.11 as builder
 RUN curl -sL https://deb.nodesource.com/setup_11.x | bash - && apt-get install -y nodejs
 WORKDIR /app
 COPY Gemfile* ./
@@ -17,7 +17,7 @@ RUN bundle exec rake assets:precompile
 RUN bundle install --path vendor/bundle --without development test
 
 
-FROM ruby:2.2
+FROM rickpeyton/rails:ruby-2.3.8-rails-4.2.11
 WORKDIR /app
 COPY --from=builder /app /app
 COPY config/bundle_config /usr/local/bundle/config
